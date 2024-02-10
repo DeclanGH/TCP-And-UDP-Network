@@ -27,9 +27,6 @@ public class TCPServer {
                 DataInputStream dataInputStream = new DataInputStream(input);
                 DataOutputStream dataOutputStream = new DataOutputStream(output);
 
-                dataOutputStream.writeUTF("Message was received!");
-                dataOutputStream.flush();
-
                 key = HelperFunctions.generateRandomNumber(key);
                 encryptedMessage = dataInputStream.readUTF();
 
@@ -44,6 +41,9 @@ public class TCPServer {
                     client.close();
                     break;
                 }
+
+                dataOutputStream.writeUTF(decryptedMessage);
+                dataOutputStream.flush();
 
                 System.out.println("Client Message: " + decryptedMessage);
                 System.out.println("--------------------------------------------------------------");
