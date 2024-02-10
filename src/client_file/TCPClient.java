@@ -48,18 +48,9 @@ public class TCPClient {
                 long startTime = System.nanoTime();
                 output.writeUTF(encryption);
                 output.flush();
+                if (userInput.equals("exit!")) break;
                 String echo = input.readUTF();
                 long endTime = System.nanoTime();
-
-                if (userInput.equals("exit!")){
-                    System.out.println("closing connection...");
-                    output.close();
-                    input.close();
-                    stdIn.close();
-                    socket.close();
-                    System.out.println("GoodBye!");
-                    break;
-                }
 
                 long roundTripTime = endTime - startTime;
                 int numberOfBitsInMessage = userInput.getBytes().length * 8;
@@ -72,6 +63,14 @@ public class TCPClient {
                 System.out.println("Throughput = " + throughput + " bps");
                 System.out.println("--------------------------------------------------------------");
             }
+
+            System.out.println("closing connection...");
+            output.close();
+            input.close();
+            stdIn.close();
+            socket.close();
+            System.out.println("GoodBye!");
+
         } catch (IOException e) {
             System.err.println("IO failure.");
             e.printStackTrace();
