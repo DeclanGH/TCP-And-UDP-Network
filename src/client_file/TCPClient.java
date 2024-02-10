@@ -66,8 +66,8 @@ public class TCPClient {
                 double timeInSeconds = roundTripTime / 1e9;
                 double throughput = numberOfBitsInMessage / timeInSeconds;
 
-                System.out.println("echo: " + echo);
                 System.out.println("Input size = " + userInput.getBytes().length + " bytes" );
+                System.out.println("echo: " + echo + " (" + echo.getBytes().length + " bytes)");
                 System.out.println("Round Trip Time = " + roundTripTime + " ms");
                 System.out.println("Throughput = " + throughput + " bps");
                 System.out.println("--------------------------------------------------------------");
