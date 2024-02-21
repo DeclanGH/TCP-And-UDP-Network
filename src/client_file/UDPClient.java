@@ -67,9 +67,9 @@ public class UDPClient {
 
                 String feedback = new String(feedbackBytes);
 
-                long roundTripTime = endTime - startTime;
+                double roundTripTime = (endTime - startTime) /1e6;
                 int numberOfBitsInMessage = userInput.getBytes().length * 8;
-                double timeInSeconds = roundTripTime / 1e9;
+                double timeInSeconds = roundTripTime / 1e3;
                 double throughput = numberOfBitsInMessage / timeInSeconds;
 
                 System.out.println(feedback);
