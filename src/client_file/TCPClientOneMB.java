@@ -45,10 +45,10 @@ public class TCPClientOneMB {
 
             int timeout = 5000; // milliseconds
             socket.setSoTimeout(timeout);
-            int droppedPackets = 0;
 
             mainLoop:
             while (true) {
+                int droppedPackets = 0;
                 String userInput = stdIn.readLine();
                 int inputLength = userInput.getBytes().length;
                 int numOfLoops = ONE_MEGABYTE / inputLength;

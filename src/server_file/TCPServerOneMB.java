@@ -42,14 +42,16 @@ public class TCPServerOneMB {
                 dataOutputStream.writeUTF("received!");
                 dataOutputStream.flush();
 
-                key = HelperFunctions.generateRandomNumber(key);
+                // no decryption for data collection purposes
+
+                /*key = HelperFunctions.generateRandomNumber(key);
                 String decryptedMessage = HelperFunctions.decrypt(encryptedMessage,key);
 
                 if (!decryptedMessage.equals(prevMessage) && decryptedMessage.length() != prevMessage.length()) {
                     prevMessage = decryptedMessage;
                     System.out.println("Client Message: " + decryptedMessage);
                     System.out.println("--------------------------------------------------------------");
-                }
+                }*/
             }
 
         } catch(IOException e) {
