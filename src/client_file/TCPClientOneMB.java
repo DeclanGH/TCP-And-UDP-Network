@@ -77,7 +77,7 @@ public class TCPClientOneMB {
                 }
 
                 double timeInSeconds = totalTime / 1e9;
-                int numberOfBitsInMessage = inputLength * 8;
+                int numberOfBitsInMessage = inputLength * 8 * numOfLoops;
                 double throughput = numberOfBitsInMessage / timeInSeconds;
 
                 System.out.println("A message of " + inputLength + " bytes was sent " + numOfLoops + " times." );

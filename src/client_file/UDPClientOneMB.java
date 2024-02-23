@@ -86,7 +86,7 @@ public class UDPClientOneMB {
                     key = HelperFunctions.generateRandomNumber(key);
                 }
 
-                int numberOfBitsInMessage = userInput.getBytes().length * 8;
+                int numberOfBitsInMessage = userInput.getBytes().length * 8 * numOfLoops;
                 double timeInSeconds = totalTime / 1e9;
                 double throughput = numberOfBitsInMessage / timeInSeconds;
 
